@@ -14,22 +14,27 @@ FROM node:lts-alpine3.15
 RUN addgroup --gid 10001 --system nonroot \
  && adduser  --uid 10000 --system --ingroup nonroot --home /home/nonroot nonroot
 
+#setup folder to work off and allow nonroot to modify.
+RUN mkdir /var/www/
+
 # Install packages here with `apk add --no-cache`, copy your binary
 # into /sbin/, etc.
-RUN apk update
+RUN apk update 
 
 # Tini allows us to avoid several Docker edge cases, see https://github.com/krallin/tini.
 # NOTE: See https://github.com/hexops/dockerfile#is-tini-still-required-in-2020-i-thought-docker-added-it-natively
 # bind-tools is needed for DNS resolution to work in *some* Docker networks, but not all.
 # This applies to nslookup, Go binaries, etc. If you want your Docker image to work even
-RUN apk add --no-cache tini
-ENTRYPOINT ["/sbin/tini", "--"]
+RUN apk add --no-cache tini android-tools --no-cache bind-tools
+ENTRYPOINT ["/sbin/tini", "--", "/var/www"]
 ENTRYPOINT ["/bin/sh"]
 
 # in more obscure Docker environments, use this.
-RUN apk add --no-cache bind-tools
-RUN npm install --location=global expo-cli
-RUN apk add android-tools
+#RUN apk add --no-cache bind-tools 
+RUN npm install --location=global expo-cli 
+#RUN apk add android-tools
+
+WORKDIR /var/www
 # Use the non-root user to run our application
 USER nonroot
 

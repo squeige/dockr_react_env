@@ -6,4 +6,11 @@ services:
       - "19000:19000"
       - "19001:19001"
       - "19002:19002"
+      - "19006:19006"
+      - "2222:22"
     tty: true
+    environment:
+      EXPO_DEVTOOLS_LISTEN_ADDRESS: 0.0.0.0 #Needed to expose Devtools to the host machine since 127.0.0.0/localhost cant be used.
+      REACT_NATIVE_PACKAGER_HOSTNAME: ${mylocalip} # Needed to expose expo developer tools to the host, edit the .env file.
+    volumes:
+      - ./app:/var/www/
