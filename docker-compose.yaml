@@ -2,5 +2,8 @@ version:  "3"
 services:
   react:
     build: .
-    volumes:
-      - /app:/var/app
+    ports: # Need to open these ports to work with Expo
+      - "19000:19000"
+      - "19001:19001"
+      - "19002:19002"
+    tty: true
