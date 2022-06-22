@@ -17,21 +17,18 @@ RUN addgroup --gid 10001 --system nonroot \
 # Install packages here with `apk add --no-cache`, copy your binary
 # into /sbin/, etc.
 RUN apk update
-RUN apk add android-tools
-RUN npm install --location=global expo-cli
-
 
 # Tini allows us to avoid several Docker edge cases, see https://github.com/krallin/tini.
 # NOTE: See https://github.com/hexops/dockerfile#is-tini-still-required-in-2020-i-thought-docker-added-it-natively
-RUN apk add --no-cache tini
-ENTRYPOINT ["/sbin/tini", "--"]
-# Replace "myapp" above with your binary
-
 # bind-tools is needed for DNS resolution to work in *some* Docker networks, but not all.
 # This applies to nslookup, Go binaries, etc. If you want your Docker image to work even
+RUN apk add --no-cache tini
+ENTRYPOINT ["/sbin/tini", "--"]
+
 # in more obscure Docker environments, use this.
 RUN apk add --no-cache bind-tools
-
+RUN npm install --location=global expo-cli
+RUN apk add android-tools
 # Use the non-root user to run our application
 USER nonroot
 
@@ -43,8 +40,6 @@ ARG PORT=19006
 ENV PORT $PORT
 EXPOSE $PORT 19001 19002 
 
-
 ENV REACT_NATIVE_PACKAGER_HOSTNAME="192.168.1.28"
 # The Following line is needed since by default Expo uses 127.0.0.1/localhost
 ENV EXPO_DEVTOOLS_LISTEN_ADDRESS=0.0.0.0
-
