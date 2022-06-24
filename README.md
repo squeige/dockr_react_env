@@ -1,6 +1,6 @@
 # Docker React Native DEV environment with SSH capabilites for remote coding.
 
-As a usecase I wanted to setup a docker dev env in my local machine that was reproducible and easily transfered between my desktop and my laptop. I was thinking if I was a large enterprise and wanted to exploresay I had a company with new hires all the tools they needed to get coding as soon as possible what would be the fastest approach. I have some open security vulnerabilities with SSH and not using secrets for passwords. But as a usecase I am happy with the results and the execution.
+As a usecase I wanted to setup a docker dev env in my local machine that was reproducible and easily transfered between my desktop and my laptop. I was thinking if I was a large enterprise and wanted to explore say I had a company with new hires all the tools they needed to get coding as soon as possible what would be the fastest approach. I have some open security vulnerabilities with SSH and not using secrets for passwords. But as a usecase I am happy with the results and the execution.
 ## Getting Started
 
 ### Dependencies
