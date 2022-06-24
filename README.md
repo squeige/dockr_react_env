@@ -24,9 +24,9 @@ Log into the running container
 I have provided an initial default expo project inside /var/www/ you can just copy that or edit that. Note the data under this folder is persitant. You will have it available wether or not the container is running.
 You can start the app with npm start and code away.
 
-docker exec -it dev-react-1 /bin/sh
-to enable ssh you will need to run
-/opt/scripts/startup.sh
+docker exec -it dev-react-1 /bin/sh<br />
+to enable ssh you will need to run<br />
+/opt/scripts/startup.sh<br />
 
 
 
