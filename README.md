@@ -15,11 +15,11 @@ git clone https://github.com/squeige/dockr_react_env/
 ### Executing program
 Check your default settings (SSH PASSWORD and LOCAL IP) inside the .env file
 build your image either from the dockerfile or using docker compose, from the root directory 
-  docker compose build
-Run your docker environment,
-  docker run --rm -it react_img
-  docker compose up -d
-Log into the running container
+  docker compose build<br />
+Run your docker environment,<br />
+  docker run --rm -it react_img<br />
+  docker compose up -d<br />
+Log into the running container<br />
 
 I have provided an initial default expo project inside /var/www/ you can just copy that or edit that. Note the data under this folder is persitant. You will have it available wether or not the container is running.
 You can start the app with npm start and code away.
@@ -36,9 +36,9 @@ Luigi Castro
 
 ## Acknowledgments
 
-References used for this project
-https://github.com/hexops/dockerfile -- Docker File best practices
-https://docs.docker.com/ -- Docker Documentation Repo
-Other online documentation... 
+References used for this project<br />
+https://github.com/hexops/dockerfile -- Docker File best practices<br />
+https://docs.docker.com/ -- Docker Documentation Repo<br />
+Other online documentation... <br />
 
 
